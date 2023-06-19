@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StripeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(uri: '/',            action: 'App\Http\Controllers\StripeController@index')->name('index');
+Route::post(uri: '/checkout',    action: 'App\Http\Controllers\StripeController@checkout')->name('checkout');
+Route::get(uri: '/success',     action: 'App\Http\Controllers\StripeController@success')->name('success');
